@@ -1,4 +1,4 @@
-import { SFPRO } from "@/fonts/local";
+import { SFPRO } from "@/fonts/fonts";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
