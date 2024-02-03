@@ -32,7 +32,8 @@ export default function Battery() {
     <div className="flex gap-[0.4px] items-center">
       <div className="relative flex w-[24px] p-[1.2px] bg-transparent border-[1px] border-gray-600 rounded-[4px] h-[12px] overflow-hidden">
         <div
-          className="bg-white h-full rounded-[2px]"
+          data-low={battery < 20}
+          className="bg-white h-full rounded-[2px] data-[low=true]:bg-red-500"
           style={{ width: `${battery}%` }}
         ></div>
       </div>
