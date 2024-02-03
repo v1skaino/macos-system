@@ -9,9 +9,10 @@ export default function Dock() {
   return (
     <div className="flex justify-center w-full py-2">
       <section className="flex gap-2 justify-between bg-white/[.09] backdrop-blur-[10px] w-auto rounded-xl p-1">
-        {icons?.map(({ icon, name }) => {
+        {icons?.map(({ icon, name, action }) => {
           return (
             <Image
+              onClick={() => action?.()}
               key={name}
               src={icon}
               alt={name}

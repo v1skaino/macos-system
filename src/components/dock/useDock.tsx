@@ -1,3 +1,4 @@
+import { useLayout } from "@/hooks/contexts";
 import AppStore from "../../../public/icons/appstore.png";
 import Calendar from "../../../public/icons/calendar.png";
 import Chrome from "../../../public/icons/chrome.png";
@@ -14,8 +15,14 @@ import Trash from "../../../public/icons/trash.png";
 import Vscode from "../../../public/icons/vscode.png";
 
 export default function useDock() {
+  const { setIsFinderOpen } = useLayout();
+
   const icons = [
-    { icon: Finder, name: "Finder" },
+    {
+      icon: Finder,
+      name: "Finder",
+      action: () => setIsFinderOpen((prev) => !prev),
+    },
     { icon: Launchpad, name: "Launchpad" },
     { icon: Safari, name: "Safari" },
     { icon: Messages, name: "Messages" },
