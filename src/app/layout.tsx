@@ -1,3 +1,4 @@
+import Providers from "@/contexts/providers";
 import { SFPRO } from "@/fonts/fonts";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -17,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={SFPRO.className}>{children}</body>
+      <body className={SFPRO.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
