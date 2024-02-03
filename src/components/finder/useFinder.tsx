@@ -10,6 +10,7 @@ import Downloads from "../../../public/icons/downloads.png";
 export default function useFinder() {
   const { setIsFinderOpen } = useLayout();
   const [maximized, setMaximized] = useState(false);
+  const [selectedDir, setSelectedDir] = useState("Documentos");
 
   const toggleMaximize = () => {
     setMaximized((prev) => !prev);
@@ -24,5 +25,12 @@ export default function useFinder() {
     { label: "Downloads", src: Downloads },
   ];
 
-  return { links, setIsFinderOpen, toggleMaximize, maximized };
+  return {
+    links,
+    setIsFinderOpen,
+    toggleMaximize,
+    maximized,
+    setSelectedDir,
+    selectedDir,
+  };
 }

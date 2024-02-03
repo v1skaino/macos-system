@@ -6,7 +6,14 @@ import WindowActions from "../windowActions/windowActions";
 import useFinder from "./useFinder";
 
 export default function Finder() {
-  const { links, setIsFinderOpen, toggleMaximize, maximized } = useFinder();
+  const {
+    links,
+    setIsFinderOpen,
+    toggleMaximize,
+    maximized,
+    selectedDir,
+    setSelectedDir,
+  } = useFinder();
 
   return (
     <Draggable
@@ -27,10 +34,15 @@ export default function Finder() {
           <span className="text-white opacity-50 text-xs">Favoritos</span>
           {links?.map((link) => {
             return (
-              <div key={link.label} className="flex gap-2 p-[2px]">
+              <button
+                key={link.label}
+                data-selected={selectedDir === link.label}
+                className="flex cursor-default items-center w-full gap-2 py-[4px] px-2 rounded-sm outline-none data-[selected=true]:bg-white/[.2]"
+                onClick={() => setSelectedDir(link.label)}
+              >
                 <Image src={link.src} alt={link.label} width={20} height={20} />
                 <span className="text-white text-sm">{link.label}</span>
-              </div>
+              </button>
             );
           })}
         </section>
@@ -38,7 +50,9 @@ export default function Finder() {
           <section className="drag bg-windowHead flex items-center">
             <ChevronLeft className="text-gray-700" />
             <ChevronRight className="text-gray-700" />
-            <span className="text-white font-medium px-2 py-3">Documentos</span>
+            <span className="text-white font-medium px-2 py-3">
+              {selectedDir}
+            </span>
           </section>
           <section className="overflow-auto w-full h-full bg-windowBody min-w-[400px] min-h-[320px] p-4">
             Conteúdo da janela
