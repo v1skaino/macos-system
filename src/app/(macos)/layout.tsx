@@ -1,3 +1,4 @@
+import Dock from "@/components/dock/dock";
 import Toolbar from "@/components/toolbar/toolbar";
 import { ReactNode } from "react";
 
@@ -10,7 +11,8 @@ export default function MacosLayout({
       style={{ backgroundImage: `url(/background.jpg)` }}
     >
       <Toolbar />
-      {children}
+      <main className="flex flex-col h-full overflow-auto">{children}</main>
+      <Dock />
     </section>
   );
 }
